@@ -46,8 +46,16 @@ Things you may want to cover:
 # orders table
 
 |Column|Type|Options|
-|user|references|false|foreign_key|
-|user|references|false|foreign_key|
-|phone_number|integer|false|
+|purchase_items|string|false|
+
+
+# address table
+
+|Column|Type|Options|
+|address|string|false|
+|zip_code|string|false|
+|phone_number|string|false|
+
+
 
 
