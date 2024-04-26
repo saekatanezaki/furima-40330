@@ -60,8 +60,8 @@ Things you may want to cover:
 
 # orders table
 
-|Column              |Type        |Options     |
-|--------------------|------------|------------|
+|Column              |Type        |Options                       |
+|--------------------|------------|------------------------------|
 |user                |references  |foreign_key: true, null: false|
 |item                |references  |foreign_key: true, null: false|
 
