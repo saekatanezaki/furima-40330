@@ -41,18 +41,28 @@ Things you may want to cover:
 
 # items table
 
-|Column              |Type     |Options     |
-|--------------------|---------|------------|
-|item_name           |string   |null: false |
-|content             |text     |null: false |
-|price               |integer  |null: false |
-#|category            |active_hash   |null: false |
-#|status              |active_hash   |null: false |
-#|shipping_status     |active_hash   |null: false |
-|item_prefecture     |string   |null: false |
-#|scheduled_delivery  |active_hash  |null: false |
+|Column              |Type       |Options     |
+|--------------------|---------- |------------|
+|item_name           |string     |null: false |
+|content             |text       |null: false |
+|price               |integer    |null: false |
+|category            |active_hash|null: false |
+|status              |active_hash|null: false |
+|shipping_status     |active_hash|null: false |
+|item_prefecture     |string     |null: false |
+|scheduled_delivery  |active_hash|null: false |
 |user                |references|foreign_key: true, null: false　|
-#active_hashはread meに記載されているという記述が見つからないのでここはカテゴリーの選択を工夫しように記述されている通り今後modelを作成し、個別に書く
+
+class CreateArticles < ActiveRecord::Migration[7.0]
+ def change
+   create_table :articles do |t|
+     t.text     :category        , null: false
+     t.text       :status         , null: false
+     t.string    :shipping_status    , null: false
+     t.text      :item_prefecture    ,null: false
+   end
+ end
+end
 
 - belongs_to: user
 - has_one: order
@@ -67,8 +77,9 @@ Things you may want to cover:
 |item                |references  |foreign_key: true, null: false|
 
 - belongs_to: item
-- has_one: item
 - has_one: address
+- belongs_to: user
+
 
 
 
@@ -77,8 +88,7 @@ Things you may want to cover:
 |Column              |Type        |Options     |
 |--------------------|------------|------------|
 |zip_code            |string      |null:false  |
-|address             |string      |null:false  |
-#|prefecture          |string      |null: false |
+|prefecture          |string      |null: false |
 |city                |string      |null: false |
 |addresses           |string      |null: false |
 |building            |string      |
@@ -86,7 +96,6 @@ Things you may want to cover:
 |order               |references  |foreign_key: true, null: false|
 #active_hashはread meに記載されているという記述が見つからないのでここはカテゴリーの選択を工夫しように記述されている通り今後modelを作成し、個別に書く
 
-- belongs_to: order
 - has_one: order
 
 
