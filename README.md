@@ -46,12 +46,13 @@ Things you may want to cover:
 |item_name           |string   |null: false |
 |content             |text     |null: false |
 |price               |integer  |null: false |
-|category            |string   |null: false |
-|status              |string   |null: false |
-|shipping_status     |string   |null: false |
+#|category            |active_hash   |null: false |
+#|status              |active_hash   |null: false |
+#|shipping_status     |active_hash   |null: false |
 |item_prefecture     |string   |null: false |
-|scheduled_delivery  |integer  |null: false |
-|user                |reference|foreign_key: true, null: false|
+#|scheduled_delivery  |active_hash  |null: false |
+|user                |references|foreign_key: true, null: false　|
+#active_hashはread meに記載されているという記述が見つからないのでここはカテゴリーの選択を工夫しように記述されている通り今後modelを作成し、個別に書く
 
 - belongs_to: user
 - has_one: order
@@ -66,9 +67,8 @@ Things you may want to cover:
 |item                |references  |foreign_key: true, null: false|
 
 - belongs_to: item
-- belongs_to: user
 - has_one: item
-- has_one: user
+- has_one: address
 
 
 
@@ -78,15 +78,16 @@ Things you may want to cover:
 |--------------------|------------|------------|
 |zip_code            |string      |null:false  |
 |address             |string      |null:false  |
-|prefecture          |string      |null: false |
+#|prefecture          |string      |null: false |
 |city                |string      |null: false |
 |addresses           |string      |null: false |
 |building            |string      |
 |phone_number        |string      |null: false |
+|order               |references  |foreign_key: true, null: false|
+#active_hashはread meに記載されているという記述が見つからないのでここはカテゴリーの選択を工夫しように記述されている通り今後modelを作成し、個別に書く
 
 - belongs_to: order
 - has_one: order
-- has_one: user
 
 
 
