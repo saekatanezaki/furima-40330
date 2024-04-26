@@ -48,7 +48,7 @@ Things you may want to cover:
 |price               |integer     |null: false |
 |category_id         |integer    |null: false |
 |status_id           |integer    |null: false |
-|shipping_status     |string     |null: false |
+|shipping_status_id     |string     |null: false |
 |prefecture_id       |integer    |null: false |
 |scheduled_delivery_id  |integer    |null: false |
 |user                |references|foreign_key: true, null: false　|
