@@ -24,7 +24,11 @@ Things you may want to cover:
 * ...
 
 # users table
+<<<<<<< Updated upstream
 |Column               |Type    |Options     |
+=======
+|Column              |Type     |Options     |
+>>>>>>> Stashed changes
 |--------------------|---------|------------|
 |name                |string   |null: false |
 |email               |string   |null: false, unique: true|
@@ -41,6 +45,7 @@ Things you may want to cover:
 
 # items table
 
+<<<<<<< Updated upstream
 |Column              |Type       |Options     |
 |--------------------|----------  |------------|
 |item_name           |string      |null: false |
@@ -52,6 +57,19 @@ Things you may want to cover:
 |prefecture_id       |integer    |null: false |
 |scheduled_delivery_id  |integer    |null: false |
 |user                |references|foreign_key: true, null: false　|
+=======
+|Column                 |Type        |Options     |
+|--------------------   |----------  |------------|
+|item_name              |string      |null: false |
+|content                |text        |null: false |
+|price                  |integer     |null: false |
+|category_id            |integer     |null: false |
+|status_id              |integer     |null: false |
+|shipping_status_id     |integer     |null: false |
+|prefecture_id          |integer     |null: false |
+|scheduled_delivery_id  |integer     |null: false |
+|user                   |references  |foreign_key: true, null: false　|
+>>>>>>> Stashed changes
 
 
 - belongs_to: user
