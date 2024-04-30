@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   describe 'ユーザー新規登録' do
@@ -26,4 +26,5 @@ class UserTest < ActiveSupport::TestCase
       user = User.new(nickname: 'test', email: 'test@example', password: '', password_confirmation: '')
       user.valid?
     end
+  end
 end

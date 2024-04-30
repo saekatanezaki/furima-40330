@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
-  def index
+  def edit
+  end
+
+  def update
+  end
+
+  private
+
+  def user_params
   end
 end
