@@ -26,5 +26,6 @@ class UserTest < ActiveSupport::TestCase
       user = User.new(nickname: 'test', email: 'test@example', password: '', password_confirmation: '')
       user.valid?
     end
+
   end
 end

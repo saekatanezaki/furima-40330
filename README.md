@@ -24,7 +24,8 @@ Things you may want to cover:
 * ...
 
 # users table
-|Column               |Type    |Options     |
+
+
 |--------------------|---------|------------|
 |name                |string   |null: false |
 |email               |string   |null: false, unique: true|
@@ -41,6 +42,7 @@ Things you may want to cover:
 
 # items table
 
+
 |Column              |Type       |Options     |
 |--------------------|----------  |------------|
 |item_name           |string      |null: false |
@@ -52,6 +54,8 @@ Things you may want to cover:
 |prefecture_id       |integer    |null: false |
 |scheduled_delivery_id  |integer    |null: false |
 |user                |references|foreign_key: true, null: false　|
+
+
 
 
 - belongs_to: user
