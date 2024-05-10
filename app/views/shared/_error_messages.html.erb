@@ -1,9 +1,10 @@
-<% if model.errors.any? %>
+<% if model.errors.any? %> 
+<%# <%= render partial: 'shared/error_messages', locals: { model: @item} %> 
 <div class="error-alert">
   <ul>
-    <% model.errors.full_messages.each do |message| %>
+    <% @item.errors.full_messages.each do |message| %>
     <li class='error-message'><%= message %></li>
     <% end %>
   </ul>
 </div>
-<% end %>
+<% end %> 
