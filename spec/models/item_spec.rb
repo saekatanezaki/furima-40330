@@ -26,27 +26,27 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include "Price can't be blank"
         end
         it 'category_idに「---」が選択されているときは出品できない' do
-          @item.category_id = '---'
+          @item.category_id = '1'
           @item.valid?
           expect(@item.errors.full_messages).to include "Category can't be blank"
         end
         it 'status_idに「---」が選択されているときは出品できない' do
-          @item.status_id = '---'
+          @item.status_id = '1'
           @item.valid?
           expect(@item.errors.full_messages).to include "Status can't be blank"
         end
         it 'shipping_status_idに「---」が選択されているときは出品できない' do
-          @item.shipping_status_id = '---'
+          @item.shipping_status_id = '1'
           @item.valid?
           expect(@item.errors.full_messages).to include "Shipping status can't be blank"
         end
         it 'prefecture_idに「---」が選択されているときは出品できない' do
-          @item.prefecture_id = '---'
+          @item.prefecture_id = '1'
           @item.valid?
           expect(@item.errors.full_messages).to include "Prefecture can't be blank"
         end
         it 'scheduled_delivery_idに「---」が選択されているときは出品できない' do
-          @item.scheduled_delivery_id = '---'
+          @item.scheduled_delivery_id = '1'
           @item.valid?
           expect(@item.errors.full_messages).to include "Scheduled delivery can't be blank"
         end
@@ -56,7 +56,7 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include('Price is invalid')
         end
         it 'priceが300円未満では保存できないこと' do
-          @item.price = 300
+          @item.price = 299
           @item.valid?
           expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
         end
