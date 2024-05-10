@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   validates :content, presence: true
   validates :price, presence: true,
                     numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, only_integer: true }
-  validates :category_id, presence: true, numericality: { other_than: 1 }
+  validates :genre_id, presence: true, numericality: { other_than: 1 }
   validates :status_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :shipping_status_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :prefecture_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }

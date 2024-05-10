@@ -6,7 +6,7 @@ RSpec.describe Item, type: :model do
   end
   describe 'ユーザー新規登録' do
     context '商品登録できるとき' do
-      it 'image、item_name、content、price、category_id、status_id、shipping_status_id、prefecture_id、scheduled_delivery_id、priceが存在すれば登録できる' do
+      it 'image、item_name、content、price、genre_id、status_id、shipping_status_id、prefecture_id、scheduled_delivery_id、priceが存在すれば登録できる' do
         expect(@item).to be_valid
       end
       context '商品登録ができないとき' do
@@ -25,10 +25,10 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include "Price can't be blank"
         end
-        it 'category_idに「---」が選択されているときは出品できない' do
-          @item.category_id = '1'
+        it 'genre_idに「---」が選択されているときは出品できない' do
+          @item.genre_id = '1'
           @item.valid?
-          expect(@item.errors.full_messages).to include "Category can't be blank"
+          expect(@item.errors.full_messages).to include "Genre can't be blank"
         end
         it 'status_idに「---」が選択されているときは出品できない' do
           @item.status_id = '1'
