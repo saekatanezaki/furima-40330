@@ -2,7 +2,7 @@
 <%# <%= render partial: 'shared/error_messages', locals: { model: @item} %> 
 <div class="error-alert">
   <ul>
-    <% @item.errors.full_messages.each do |message| %>
+    <% model.errors.full_messages.each do |message| %>
     <li class='error-message'><%= message %></li>
     <% end %>
   </ul>
