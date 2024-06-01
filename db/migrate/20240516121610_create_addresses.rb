@@ -1,8 +1,6 @@
-class CreateOrders < ActiveRecord::Migration[7.0]
+class CreateAddresses < ActiveRecord::Migration[7.0]
   def change
-    create_table :orders do |t|
-      t.references :user, foreign_key: true, null: false
-      t.references :item, foreign_key: true, null: false
+    create_table :addresses do |t|
       t.integer :prefecture_id, null: false
       t.string :postal_code,  null: false
       t.string :city, null: false
