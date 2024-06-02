@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   before_action :move_to_index, only: [:index, :create]
 
   def index
+    gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     @order = CheckOut.new
   end
 
@@ -16,6 +17,7 @@ class OrdersController < ApplicationController
       @order.save
       redirect_to root_path
     else
+      gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
       render 'index', status: :unprocessable_entity
     end
   end
@@ -26,7 +28,6 @@ class OrdersController < ApplicationController
 
     def move_to_index
     redirect_to root_path if user_signed_in? && @item.order.present?
-    # redirect_to root_path if user_signed_in? && current_user.id = @item.user_id
   end
 end
 
@@ -36,7 +37,7 @@ end
   end
 
   def pay_item
-    Payjp.api_key = '****************************************'
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Rails.logger.debug("Token: #{order_params[:token]}")
     Rails.logger.debug("Item price: #{@item.price}")
     Payjp::Charge.create(
