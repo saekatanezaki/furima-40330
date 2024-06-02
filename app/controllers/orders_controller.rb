@@ -27,9 +27,9 @@ class OrdersController < ApplicationController
   private
 
     def move_to_index
-    redirect_to root_path if user_signed_in? && @item.order.present?
+    redirect_to root_path if current_user.id == @item.user_id || !@item.order.present?
   end
-end
+
 
   def order_params
     params.require(:check_out).permit(:postal_code, :prefecture_id, :city, :addresses, :building,
@@ -50,3 +50,4 @@ end
   def set_item
     @item = Item.find(params[:item_id])
   end
+end
