@@ -5,8 +5,6 @@ FactoryBot.define do
     addresses { Faker::Address.street_address }
     city { Faker::Address.city }
     phone_number { Faker::Number.leading_zero_number(digits: 11) }
-    # status_id {Faker::Number.between(from: 2, to: 7)}
-    association :user
-    association :item
+    token {'************************'}
   end
 end

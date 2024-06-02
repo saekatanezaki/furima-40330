@@ -31,11 +31,11 @@ end
 
   def order_params
     params.require(:check_out).permit(:price, :image, :postal_code, :prefecture_id, :city, :addresses, :building,
-                                      :phone_number, :token).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+                                      :phone_number, :token).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
   def pay_item
-    Payjp.api_key = 'sk_test_95e71765b1531883075e8bd9'
+    Payjp.api_key = 'sk_test_*****************************'
     Rails.logger.debug("Token: #{order_params[:token]}")
     Rails.logger.debug("Item price: #{@item.price}")
     Payjp::Charge.create(
