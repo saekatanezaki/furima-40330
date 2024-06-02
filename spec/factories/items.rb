@@ -3,9 +3,9 @@ FactoryBot.define do
     item_name { Faker::Commerce.product_name }
     content { Faker::Lorem.sentence }
     price { Faker::Number.between(from: 300, to: 9_999_999) }
-    genre_id { Faker::Number.between(from: 1, to: 100) }
-    status_id { Faker::Number.between(from: 1, to: Status.count) }
-    shipping_status_id { Faker::Number.between(from: 1, to: ShippingStatus.count) }
+    genre_id { Faker::Number.between(from: 2, to: 11) }
+    status_id { Faker::Number.between(from: 2, to: 7) }
+    shipping_status_id { Faker::Number.between(from: 2, to: 3) }
     prefecture_id { Faker::Number.between(from: 2, to: 48) }
     scheduled_delivery_id { FactoryBot.create(:scheduled_delivery).id }
     after(:build) do |message|
