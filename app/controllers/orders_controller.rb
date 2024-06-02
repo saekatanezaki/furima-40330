@@ -25,17 +25,18 @@ class OrdersController < ApplicationController
   private
 
     def move_to_index
-    redirect_to root_path if current_user.id == @item.user_id
+    redirect_to root_path if user_signed_in? && @item.order.present?
+    # redirect_to root_path if user_signed_in? && current_user.id = @item.user_id
   end
 end
 
   def order_params
     params.require(:check_out).permit(:price, :image, :postal_code, :prefecture_id, :city, :addresses, :building,
-                                      :phone_number, :token).merge(user_id: current_user.id, item_id: params[:item_id])
+                                      :phone_number).merge(user_id: current_user.id, item_id: params[:item_id],token: params[:token])
   end
 
   def pay_item
-    Payjp.api_key = 'sk_test_*****************************'
+    Payjp.api_key = '****************************************'
     Rails.logger.debug("Token: #{order_params[:token]}")
     Rails.logger.debug("Item price: #{@item.price}")
     Payjp::Charge.create(
